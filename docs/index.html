@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>漫藏 · MIRU INDEX — 漫画 / GalGame / ACG 资源导航</title>
+  <meta name="description" content="一个精选 GitHub 开源项目 + 实用站点导航的 ACG 资源索引站。" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Fonts: Dela Gothic One (display, Japanese gothic) + Noto Serif SC (Chinese body) + Bricolage Grotesque (English) + JetBrains Mono (tech) + Shippori Mincho (Japanese editorial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+SC:wght@300;400;600;900&family=Shippori+Mincho:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 装饰：左侧竖排 -->
+  <aside class="decor decor-left" aria-hidden="true">
+    <div class="vertical-text">INDEX&nbsp;·&nbsp;漫藏&nbsp;·&nbsp;二〇二六</div>
+  </aside>
+  <aside class="decor decor-right" aria-hidden="true">
+    <div class="vertical-text">MIRU&nbsp;·&nbsp;MIRU&nbsp;·&nbsp;MIRU</div>
+  </aside>
+
+  <!-- 颗粒噪点 -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ================== HEADER ================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="hanko" aria-hidden="true">
+          <span>漫</span>
+          <span>藏</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-en">MIRU&nbsp;INDEX</div>
+          <div class="brand-cn">漫画 / GalGame / ACG 资源导航</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a class="nav-link" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="nav-link" href="../README.md" target="_blank">README</a>
+        <a class="nav-link" href="../LINKS.md" target="_blank">LINKS</a>
+        <a class="nav-link" href="../SITES.md" target="_blank">SITES</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================== HERO ================== -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="kicker"><span class="dot"></span>RESOURCE&nbsp;AGGREGATOR · 2026 EDITION</div>
+        <h1 class="hero-title">
+          找一个<br />
+          <span class="accent">开源</span>的<br />
+          漫画工具<br />
+          有这么难？
+        </h1>
+        <p class="hero-sub">
+          这里收录了 <strong>GitHub</strong> 上仍在活跃维护的 <em>JM / 哔咔 / Tachiyomi / E-Hentai</em> 客户端与下载器，
+          以及日常会用到的 <em>工具 / GalGame / 番剧 / 游戏 / 书籍</em> 站点。
+          按类目整齐排好，点一下就跳。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">浏览项目 →</a>
+          <a class="btn btn-ghost" href="#sites">查看站点</a>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <div class="meta-card">
+          <div class="meta-label">UPDATED</div>
+          <div class="meta-value" id="stat-updated">—</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-label">PROJECTS</div>
+          <div class="meta-value" id="stat-projects">—</div>
+          <div class="meta-foot">GitHub 仓库</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-label">SITES</div>
+          <div class="meta-value" id="stat-sites">—</div>
+          <div class="meta-foot">实用站点</div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-label">CATEGORIES</div>
+          <div class="meta-value" id="stat-categories">—</div>
+          <div class="meta-foot">资源分类</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== TABS ================== -->
+  <section class="tabs-bar" id="explore">
+    <div class="tabs">
+      <button class="tab is-active" data-tab="projects">
+        <span class="tab-num">01</span>
+        <span class="tab-label">开源项目</span>
+        <span class="tab-sub">GitHub Repositories</span>
+      </button>
+      <button class="tab" data-tab="sites">
+        <span class="tab-num">02</span>
+        <span class="tab-label">实用站点</span>
+        <span class="tab-sub">Useful Sites</span>
+      </button>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search-wrap">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <input id="search" type="search" placeholder="搜索项目 / 站点 / 标签…" autocomplete="off" />
+      <kbd class="kbd">/</kbd>
+    </div>
+  </section>
+
+  <!-- ================== CATEGORY FILTER ================== -->
+  <section class="filters" id="filters" data-section="projects">
+    <button class="chip is-active" data-cat="all">
+      <span class="chip-mark">All</span>全部
+    </button>
+    <!-- chips by JS -->
+  </section>
+
+  <!-- ================== GRID ================== -->
+  <main class="grid-wrap">
+    <div id="grid" class="grid" aria-live="polite"></div>
+    <div id="empty" class="empty" hidden>
+      <div class="empty-mark">無</div>
+      <p>没有匹配的结果。试试其他关键词？</p>
+    </div>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="hanko hanko-sm" aria-hidden="true">
+          <span>漫</span><span>藏</span>
+        </div>
+        <div>
+          <div class="footer-title">漫藏 · MIRU INDEX</div>
+          <div class="footer-sub">整理开源项目 & 实用站点 · 不托管任何受版权保护的内容</div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <div class="footer-h">DOCS</div>
+          <a href="../README.md" target="_blank">README</a>
+          <a href="../LINKS.md" target="_blank">LINKS</a>
+          <a href="../SITES.md" target="_blank">SITES</a>
+          <a href="../SOURCES.md" target="_blank">SOURCES</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-h">GH&nbsp;PAGES</div>
+          <a href="https://pages.github.com/" target="_blank" rel="noopener">Hosted by GitHub Pages</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 MIRU INDEX</span>
+      <span>·</span>
+      <span>Build 2026.06</span>
+      <span>·</span>
+      <span>Seal&nbsp;+&nbsp;Ink aesthetic</span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

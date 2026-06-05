@@ -132,7 +132,7 @@ export const categories = [
         tags: ['AI', '漫画', 'OCR'], features: ['多语言', '一键擦除', '可本地'], proxy: false
       },
       {
-        name: 'BallonTranslator', url: 'https://github.com/dmMaze/BalloonTranslator', desc: '带 GUI 的漫画翻译',
+        name: 'BallonTranslator', url: 'https://github.com/dmMaze/BallonsTranslator', desc: '带 GUI 的漫画翻译',
         fullDesc: '基于 manga-image-translator 的 GUI 客户端，支持选区编辑、人工校对、批量翻译，对比漫画翻译的"PS 替代品"。',
         tags: ['AI', 'GUI', '校对'], features: ['可视化', '选区编辑', '批量'], proxy: false
       },
@@ -319,7 +319,7 @@ export const categories = [
         tags: ['哔咔', '多平台', '官方'], features: ['全平台', '社区', '官方授权'], proxy: false
       },
       {
-        name: 'JMComic', url: 'https://jm365.work/AwNzE2', desc: 'JM 漫画客户端',
+        name: 'JMComic', url: 'https://jmcomicog.net/', desc: 'JM 漫画客户端',
         fullDesc: 'JM 漫画官方多平台客户端，资源以台湾 / 港 / 大陆同人志为主，App 端阅读体验好，浏览器适配也有。',
         tags: ['JM', '同人', '多平台'], features: ['多端同步', '阅读体验', '港台资源'], proxy: false
       },
@@ -494,7 +494,7 @@ export const categories = [
         tags: ['TXT', '网文', '轻小说'], features: ['TXT 格式', '网文全', '移动端'], proxy: false
       },
       {
-        name: '奇书网', url: 'https://m.qishu99.cc/', desc: '网络小说',
+        name: '奇书网', url: 'https://m.9qishu.com/', desc: '网络小说',
         fullDesc: '网络小说聚合站，按玄幻 / 都市 / 言情 / 科幻 / 历史分类，每日更新。',
         tags: ['网文', '玄幻', '都市'], features: ['分类全', '日更', '移动端'], proxy: false
       },
@@ -602,7 +602,7 @@ export const categories = [
       },
       // 通用下载器
       {
-        name: 'HakuNeko', url: 'https://github.com/hakuneko/HakuNeko', desc: '1200+ 源桌面下载器',
+        name: 'HakuNeko', url: 'https://github.com/manga-download/hakuneko', desc: '1200+ 源桌面下载器',
         fullDesc: '基于 NW.js 的桌面漫画下载器，内置 1200+ 数据源，覆盖几乎所有主流漫画 / 同人站，桌面端功能完整。',
         tags: ['桌面', '多源', '下载器'], features: ['1200+ 源', '三端', '桌面端'], proxy: false
       },
@@ -642,7 +642,7 @@ export const categories = [
         tags: ['自托管', '阅读器', 'OPDS'], features: ['自托管', '多格式', 'Web Reader'], proxy: false
       },
       {
-        name: 'Komga', url: 'https://github.com/Komga-org/Komga', desc: '漫画库管理',
+        name: 'Komga', url: 'https://github.com/gotson/komga', desc: '漫画库管理',
         fullDesc: '自托管漫画库管理服务器，OPDS / Web Reader / REST API，UI 现代化，适合家庭 NAS 部署。',
         tags: ['自托管', 'OPDS', 'Web'], features: ['OPDS', 'REST API', '家庭友好'], proxy: false
       },

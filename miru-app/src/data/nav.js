@@ -23,7 +23,7 @@ export const categories = [
     icon: '📦',
     items: [
       { name: 'MT管理器', url: 'https://mt2.cn/', desc: '文件管理+解压+编辑', proxy: false },
-      { name: '解压专家', url: 'http://www.unisapps.com/', desc: '查找密码', proxy: false },
+      { name: '解压专家', url: 'https://www.unisapps.com/', desc: '查找密码', proxy: false },
       { name: 'ZArchiver Pro', url: 'https://zdevs.ru/en/', desc: '可解压lz4文件', proxy: false },
     ]
   },
@@ -36,7 +36,7 @@ export const categories = [
       { name: 'SauceNAO', url: 'https://saucenao.com/', desc: '二次元反向搜图', proxy: true },
       { name: '搜图bot', url: 'https://soutubot.moe/', desc: 'Telegram搜图机器人', proxy: false },
       { name: 'ascii2d', url: 'https://ascii2d.net/', desc: '二次元画像详细检索', proxy: true },
-      { name: 'iqdb', url: 'http://www.iqdb.org/', desc: '识图搜索', proxy: true },
+      { name: 'iqdb', url: 'https://www.iqdb.org/', desc: '识图搜索', proxy: true },
     ]
   },
   {
@@ -57,14 +57,14 @@ export const categories = [
       { name: '青桔网', url: 'https://www.qingju.org/', desc: '网盘资源', proxy: false },
       { name: 'Touchgal', url: 'https://www.touchgal.io/', desc: 'GalGame综合站', proxy: false },
       { name: '失落小站', url: 'https://www.shinnku.com/', desc: '老牌资源站', proxy: false },
-      { name: '晴空咖啡馆', url: 'http://aosoracafe.com/', desc: '资讯评测攻略', proxy: false },
+      { name: '晴空咖啡馆', url: 'https://aosoracafe.com/', desc: '资讯评测攻略（已并入 inarigal.moe）', proxy: false },
       { name: '量子ACG', url: 'https://lzacg.org/', desc: 'ACG资源', proxy: false },
       { name: '稻荷ACG', url: 'https://inarigal.com/', desc: 'GalGame资源', proxy: false },
       { name: 'NekoGAL', url: 'https://www.nekogal.com/', desc: 'GalGame资源', proxy: false },
       { name: '绮梦ACG', url: 'https://game.acgs.one/', desc: 'GalGame资源', proxy: false },
       { name: '05小站', url: 'https://05fx.022016.xyz/', desc: 'GalGame资源', proxy: false },
       { name: '岛屿ACG', url: 'https://www.acgwfb.com/', desc: '资源+论坛', proxy: false },
-      { name: '次元小屋', url: 'http://cyxw.xyz/', desc: '二次元资源', proxy: false },
+      { name: '次元小屋', url: 'https://cyxw.xyz/', desc: '二次元资源', proxy: false },
       { name: 'MikiACG', url: 'https://www.mikiacg.org/', desc: 'GalGame资源', proxy: false },
       { name: '御爱同萌', url: 'https://www.ai2.moe/', desc: 'GalGame资源', proxy: false },
     ]
@@ -130,7 +130,7 @@ export const categories = [
       { name: '幻梦轻小说', url: 'https://www.huanmengacg.com/', desc: '轻小说', proxy: false },
       { name: '轻小说文库', url: 'https://www.wenku8.cc/', desc: '日文轻小说中文翻译', proxy: false },
       { name: '党政数据库', url: 'https://www.kdocs.cn/l/ci7Hy0AMoyBD', desc: '政经资料', proxy: false },
-      { name: '毛泽东著作', url: 'http://www.mzdbl.cn/maoxuan/index.html', desc: '毛选全文', proxy: false },
+      { name: '毛泽东著作', url: 'https://www.mzdbl.cn/maoxuan/index.html', desc: '毛选全文', proxy: false },
       { name: 'Library Digital', url: 'https://library.ucsd.edu/dc/', desc: 'UCSD数字馆藏', proxy: true },
     ]
   },

@@ -105,7 +105,6 @@ body::after {
 .font-serif-cn { font-family: var(--serif); }
 .font-kai-cn { font-family: var(--kai); }
 .font-mono { font-family: var(--mono); }
-.font-cursive { font-family: var(--cursive); }
 
 /* ----------------------------------------------------------------------------
    印章 (hanko) — 圆形朱红印 + 白字
@@ -294,47 +293,6 @@ body::after {
 .scroll-end {
   opacity: 0.4;
   transition: opacity 0.3s;
-}
-
-/* ----------------------------------------------------------------------------
-   分类 tabs — 印章
----------------------------------------------------------------------------- */
-.tab-seal {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  padding: 0.4rem 0.9rem;
-  color: var(--ashi);
-  background: transparent;
-  border: 1px solid rgba(243, 236, 224, 0.1);
-  border-radius: 2px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.tab-seal:hover {
-  color: var(--washi);
-  border-color: rgba(201, 165, 92, 0.4);
-  background: rgba(201, 165, 92, 0.05);
-}
-.tab-seal.is-active {
-  color: var(--washi);
-  background: var(--seal);
-  border-color: var(--seal);
-  box-shadow: 0 0 0 1px rgba(217, 32, 32, 0.4), 0 4px 12px rgba(217, 32, 32, 0.25);
-}
-.tab-seal.is-active::before {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1px;
-  pointer-events: none;
 }
 
 /* ----------------------------------------------------------------------------

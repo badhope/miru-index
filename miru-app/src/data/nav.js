@@ -302,11 +302,6 @@ export const categories = [
         tags: ['ACG', '论坛', '综合'], features: ['社区强', '多板块', '社交'], proxy: false
       },
       {
-        name: 'VNDB', url: 'https://vndb.org/', health: 'mirror', desc: 'GalGame 资料库',
-        fullDesc: 'Visual Novel Database (VNDB)，全球最权威的 GalGame / Visual Novel 元数据库，2 万+ 作品，支持评分 / 标签 / 角色筛选，中文友好。',
-        tags: ['VNDB', '数据库', '权威'], features: ['2 万+ 作品', '元数据全', '中文友好'], proxy: true
-      },
-      {
         name: '萌新社', url: 'https://www.moe48.com/', health: 'ok', desc: 'GalGame 资讯',
         fullDesc: '萌新社（moe48），GalGame / 二次元综合资讯站，发布 GalGame 推荐 / 资讯 / 攻略 / 资源整合，是国内 GalGame 圈新晋聚合。',
         tags: ['GalGame', '资讯', '推荐'], features: ['GalGame 资讯', '攻略', '推荐'], proxy: false
@@ -849,32 +844,32 @@ export const categories = [
         tags: ['RSS', '自动', 'qBittorrent'], features: ['自动追番', '媒体库', 'RSS'], proxy: false
       },
       {
-        name: 'Obsidian', url: 'https://github.com/obsidianmd/obsidian-releases', health: 'ok', desc: '知识图谱笔记',
+        name: 'Obsidian', url: 'https://github.com/obsidianmd/obsidian-releases', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/obsidianmd/obsidian-releases', 'https://cdn.jsdelivr.net/gh/obsidianmd/obsidian-releases@latest'], desc: '知识图谱笔记',
         fullDesc: 'Obsidian 知识图谱笔记工具，基于 Markdown + 本地文件 + 反向链接，二次元同好 / 学习者用来做设定整理 / 角色图谱 / 知识库。',
         tags: ['笔记', '知识图谱', 'Markdown'], features: ['双向链接', '图谱', '插件多'], proxy: false
       },
       {
-        name: 'Logseq', url: 'https://github.com/logseq/logseq', health: 'ok', desc: '大纲式笔记',
+        name: 'Logseq', url: 'https://github.com/logseq/logseq', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/logseq/logseq', 'https://cdn.jsdelivr.net/gh/logseq/logseq@latest'], desc: '大纲式笔记',
         fullDesc: 'Logseq 大纲式 + 双向链接 + 本地优先笔记工具，开源 / 隐私友好，适合 GTD / 学习笔记 / 读书笔记。',
         tags: ['大纲', '开源', '本地'], features: ['大纲', '本地优先', '双向链接'], proxy: false
       },
       {
-        name: 'Zotero', url: 'https://github.com/zotero/zotero', health: 'ok', desc: '文献管理',
+        name: 'Zotero', url: 'https://github.com/zotero/zotero', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/zotero/zotero', 'https://cdn.jsdelivr.net/gh/zotero/zotero@latest'], desc: '文献管理',
         fullDesc: 'Zotero 开源文献管理工具，研究 / 论文党的核心工具，浏览器一键抓取 + PDF 自动重命名 + 引用格式自动生成。',
         tags: ['文献', '学术', '开源'], features: ['一键抓取', 'PDF 管理', '引用格式'], proxy: false
       },
       {
-        name: 'Anki', url: 'https://github.com/ankitects/anki', health: 'ok', desc: '间隔重复记忆',
+        name: 'Anki', url: 'https://github.com/ankitects/anki', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/ankitects/anki', 'https://cdn.jsdelivr.net/gh/ankitects/anki@latest'], desc: '间隔重复记忆',
         fullDesc: 'Anki 基于间隔重复算法的记忆卡片工具，开源 + 跨端（Win/Mac/Linux/iOS/Android），可自制卡组背单词 / 背动漫角色 / 背台词。',
         tags: ['记忆', '卡片', '间隔'], features: ['间隔算法', '跨端', '自制卡组'], proxy: false
       },
       {
-        name: 'Subtitle Edit', url: 'https://github.com/SubtitleEdit/subtitleedit', health: 'ok', desc: '字幕编辑器',
+        name: 'Subtitle Edit', url: 'https://github.com/SubtitleEdit/subtitleedit', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/SubtitleEdit/subtitleedit', 'https://cdn.jsdelivr.net/gh/SubtitleEdit/subtitleedit@latest'], desc: '字幕编辑器',
         fullDesc: 'Subtitle Edit 开源字幕编辑器（Win / Mac / Linux），支持字幕时间轴调整、翻译、OCR 识别、AI 翻译，是字幕组 / 翻译党的核心工具。',
         tags: ['字幕', '编辑', 'OCR'], features: ['时间轴', 'OCR', 'AI 翻译'], proxy: false
       },
       {
-        name: 'MeoW 追番', url: 'https://github.com/EstrellaXD/Auto_Bangumi', health: 'ok', desc: '番剧自动追番',
+        name: 'MeoW 追番', url: 'https://github.com/EstrellaXD/Auto_Bangumi', health: 'ok', mirrors: ['https://gh-proxy.com/https://github.com/EstrellaXD/Auto_Bangumi', 'https://cdn.jsdelivr.net/gh/EstrellaXD/Auto_Bangumi@latest'], desc: '番剧自动追番',
         fullDesc: 'MeoW（Auto_Bangumi）番剧自动追番工具，监控 RSS + 自动 qBittorrent 下载 + 自动整理入库，Homelab 媒体库自动化首选。',
         tags: ['追番', '自动', 'qBittorrent'], features: ['RSS 监控', '自动入库', '媒体库'], proxy: false
       },
@@ -1050,11 +1045,6 @@ export const categories = [
     name: '绘画 / 设计',
     icon: '🎨',
     items: [
-      {
-        name: 'Pixiv', url: 'https://www.pixiv.net/', health: 'mirror', desc: '日本最大插画平台',
-        fullDesc: '日本最大插画 / 漫画 / 同人志投稿平台，俗称 P 站，作品以 pid 编号索引，画师生态最丰富。',
-        tags: ['Pixiv', '插画', '同人'], features: ['pid 索引', '画师关注', '排行榜'], proxy: true
-      },
       {
         name: '米画师', url: 'https://www.mihuashi.com/', health: 'ok', desc: '约稿平台',
         fullDesc: '专业约稿平台，万名过审画师，公开透明报价 + 全程交易担保，游戏 / 卡牌 / 场景 / 同人插画 各类需求一应俱全。',

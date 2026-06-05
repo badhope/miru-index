@@ -1,11 +1,9 @@
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { categories } from './data/nav.js'
 import SiteModal from './components/SiteModal.vue'
 import SidebarNav from './components/SidebarNav.vue'
 import { healthOf } from './utils/mirror.js'
-
-const healthColor = (h) => healthOf({ health: h }).color
 
 const searchQuery = ref('')
 const activeCategory = ref('all')
@@ -15,9 +13,10 @@ const drawerOpen = ref(false)
 const sidebarCollapsed = ref(false)
 const loaded = ref(false)
 
-const CHINESE_NUMS = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '拾壹', '拾贰', '拾叁', '拾肆', '拾伍', '拾陆', '拾柒', '拾捌', '拾玖', '贰拾', '贰拾壹', '贰拾贰', '贰拾叁', '贰拾肆', '贰拾伍', '贰拾陆']
+// 卷册序号: 7 卷 + 单分类页备用
+const CHINESE_NUMS = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌']
 
-// 把 26 个分类按主题分成 6 卷
+// 把 26 个分类按主题分成 7 卷
 const VOLUMES = [
   { id: 'v1', name: '卷壹', title: '網絡工具', sub: 'Network · Tools', catIds: ['proxy', 'downloader', 'archive', 'imagesearch'] },
   { id: 'v2', name: '卷贰', title: 'AI 工坊', sub: 'AI · Workshop', catIds: ['ai', 'imgai'] },
@@ -58,8 +57,18 @@ const currentCategory = computed(() => {
 const groupedByVolume = computed(() => {
   if (activeCategory.value !== 'all') return null
   return VOLUMES.map((v, vi) => {
-    const items = filteredItems.value.filter(i => v.catIds.includes(i._category.id))
-    return { ...v, chapterNum: CHINESE_NUMS[vi + 1] || String(vi + 1), items }
+    // 预处理: 把卷内 catIds 解析为分类引用 + 仅保留有可见项的分类
+    const cats = v.catIds
+      .map(id => categories.find(c => c.id === id))
+      .filter(Boolean)
+    const visibleCatIds = new Set(cats.filter(c => c.items.length).map(c => c.id))
+    const items = filteredItems.value.filter(i => visibleCatIds.has(i._category.id))
+    return {
+      ...v,
+      cats: cats.filter(c => visibleCatIds.has(c.id)),
+      chapterNum: CHINESE_NUMS[vi + 1] || String(vi + 1),
+      items,
+    }
   }).filter(g => g.items.length > 0)
 })
 
@@ -260,77 +269,61 @@ onMounted(() => {
 
           <!-- 卷内分组 -->
           <div class="space-y-10">
-            <div
-              v-for="catId in vol.catIds"
-              :key="catId"
-              v-show="categories.find(c => c.id === catId)?.items.some(i => filteredItems.some(fi => fi.url === i.url))"
-            >
-              <template v-if="categories.find(c => c.id === catId)">
-                <div
-                  v-for="cat in [categories.find(c => c.id === catId)]"
-                  :key="cat.id"
+            <div v-for="cat in vol.cats" :key="cat.id" class="subgroup">
+              <div class="subgroup__head">
+                <span class="subgroup__icon">{{ cat.icon }}</span>
+                <h3 class="font-serif-cn text-base sm:text-lg font-bold text-[#f3ece0] tracking-wider">{{ cat.name }}</h3>
+                <span class="ink-bar flex-1 min-w-[40px]"></span>
+                <button @click="selectCategory(cat.id)" class="subgroup__more">全卷 →</button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+                <button
+                  v-for="(item, idx) in cat.items"
+                  :key="item.name + (item.url || '')"
+                  @click="openModal(item, cat)"
+                  @keydown="onCardKeydown($event, item, cat)"
+                  class="card-paper text-left p-3.5 sm:p-4 card-rise focus:outline-none focus:ring-2 focus:ring-[#d92020] focus:ring-offset-2 focus:ring-offset-[#0a0a0a] relative"
+                  :style="{ animationDelay: (Math.min(idx, 24) * 0.04) + 's' }"
+                  :aria-label="`${item.name} — ${item.desc || ''}`"
                 >
-                  <div
-                    v-if="filteredItems.some(i => i._category.id === cat.id)"
-                    class="subgroup"
-                  >
-                    <div class="subgroup__head">
-                      <span class="subgroup__icon">{{ cat.icon }}</span>
-                      <h3 class="font-serif-cn text-base sm:text-lg font-bold text-[#f3ece0] tracking-wider">{{ cat.name }}</h3>
-                      <span class="ink-bar flex-1 min-w-[40px]"></span>
-                      <button @click="selectCategory(cat.id)" class="subgroup__more">全卷 →</button>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-                      <button
-                        v-for="(item, idx) in filteredItems.filter(i => i._category.id === cat.id)"
-                        :key="item.name + (item.url || '')"
-                        @click="openModal(item, cat)"
-                        @keydown="onCardKeydown($event, item, cat)"
-                        class="card-paper text-left p-3.5 sm:p-4 card-rise focus:outline-none focus:ring-2 focus:ring-[#d92020] focus:ring-offset-2 focus:ring-offset-[#0a0a0a] relative"
-                        :style="{ animationDelay: (0.04 * idx) + 's' }"
-                        :aria-label="`${item.name} — ${item.desc || ''}`"
-                      >
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                          <h4 class="font-serif-cn text-base sm:text-lg font-bold text-[#1a1410] leading-tight line-clamp-1 flex-1">
-                            {{ item.name }}
-                          </h4>
-                          <div class="flex items-center gap-1.5 shrink-0">
-                            <span
-                              v-if="item.health && item.health !== 'ok'"
-                              :title="`健康: ${healthOf(item).label}`"
-                              class="w-2 h-2 rounded-full"
-                              :style="{ background: healthOf(item).color, boxShadow: `0 0 6px ${healthOf(item).color}88` }"
-                            ></span>
-                            <div class="hanko-circle w-7 h-7 text-[10px] stamp-anim" :style="{ animationDelay: (0.05 * idx) + 's' }">藏</div>
-                          </div>
-                        </div>
-                        <p v-if="item.desc" class="font-kai-cn text-[#3a2e22] text-[12.5px] sm:text-[13px] leading-relaxed line-clamp-2 mb-2">
-                          {{ item.desc }}
-                        </p>
-                        <div v-if="item.tags?.length" class="flex flex-wrap gap-1 mb-2">
-                          <span
-                            v-for="t in item.tags.slice(0, 2)"
-                            :key="t"
-                            class="tag-stamp"
-                            style="background: rgba(168, 22, 26, 0.08); border-color: rgba(168, 22, 26, 0.3); color: #a8161a; font-size: 0.65rem; padding: 0.1rem 0.4rem;"
-                          >#{{ t }}</span>
-                          <span
-                            v-if="item.tags.length > 2"
-                            class="tag-stamp"
-                            style="background: rgba(201, 165, 92, 0.1); border-color: rgba(201, 165, 92, 0.3); color: #a4853e; font-size: 0.65rem; padding: 0.1rem 0.4rem;"
-                          >+{{ item.tags.length - 2 }}</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-1.5 border-t border-[#1a1410]/10">
-                          <div class="font-mono text-[9px] text-[#5a4a3a] tracking-wider line-clamp-1 flex-1">
-                            {{ item.proxy ? '◯ 需梯子' : '◯ 直连' }}
-                          </div>
-                          <div class="text-[#a8161a] text-[11px] font-serif-cn tracking-wider">覌 →</div>
-                        </div>
-                      </button>
+                  <div class="flex items-start justify-between gap-2 mb-2">
+                    <h4 class="font-serif-cn text-base sm:text-lg font-bold text-[#1a1410] leading-tight line-clamp-1 flex-1">
+                      {{ item.name }}
+                    </h4>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span
+                        v-if="item.health && item.health !== 'ok'"
+                        :title="`健康: ${healthOf(item).label}`"
+                        class="w-2 h-2 rounded-full"
+                        :style="{ background: healthOf(item).color, boxShadow: `0 0 6px ${healthOf(item).color}88` }"
+                      ></span>
+                      <div class="hanko-circle w-7 h-7 text-[10px] stamp-anim" :style="{ animationDelay: (Math.min(idx, 18) * 0.05) + 's' }">藏</div>
                     </div>
                   </div>
-                </div>
-              </template>
+                  <p v-if="item.desc" class="font-kai-cn text-[#3a2e22] text-[12.5px] sm:text-[13px] leading-relaxed line-clamp-2 mb-2">
+                    {{ item.desc }}
+                  </p>
+                  <div v-if="item.tags?.length" class="flex flex-wrap gap-1 mb-2">
+                    <span
+                      v-for="t in item.tags.slice(0, 2)"
+                      :key="t"
+                      class="tag-stamp"
+                      style="background: rgba(168, 22, 26, 0.08); border-color: rgba(168, 22, 26, 0.3); color: #a8161a; font-size: 0.65rem; padding: 0.1rem 0.4rem;"
+                    >#{{ t }}</span>
+                    <span
+                      v-if="item.tags.length > 2"
+                      class="tag-stamp"
+                      style="background: rgba(201, 165, 92, 0.1); border-color: rgba(201, 165, 92, 0.3); color: #a4853e; font-size: 0.65rem; padding: 0.1rem 0.4rem;"
+                    >+{{ item.tags.length - 2 }}</span>
+                  </div>
+                  <div class="flex items-center justify-between pt-1.5 border-t border-[#1a1410]/10">
+                    <div class="font-mono text-[9px] text-[#5a4a3a] tracking-wider line-clamp-1 flex-1">
+                      {{ item.proxy ? '◯ 需梯子' : '◯ 直连' }}
+                    </div>
+                    <div class="text-[#a8161a] text-[11px] font-serif-cn tracking-wider">覌 →</div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -370,7 +363,7 @@ onMounted(() => {
               @click="openModal(item, group)"
               @keydown="onCardKeydown($event, item, group)"
               class="card-paper text-left p-4 sm:p-5 card-rise focus:outline-none focus:ring-2 focus:ring-[#d92020] focus:ring-offset-2 focus:ring-offset-[#0a0a0a] relative"
-              :style="{ animationDelay: (0.04 * idx) + 's' }"
+              :style="{ animationDelay: (Math.min(idx, 24) * 0.04) + 's' }"
               :aria-label="`${item.name} — ${item.desc || ''}`"
             >
               <div class="flex items-start justify-between gap-2 mb-3">
@@ -384,7 +377,7 @@ onMounted(() => {
                     class="w-2.5 h-2.5 rounded-full"
                     :style="{ background: healthOf(item).color, boxShadow: `0 0 6px ${healthOf(item).color}88` }"
                   ></span>
-                  <div class="hanko-circle w-9 h-9 text-xs stamp-anim" :style="{ animationDelay: (0.05 * idx) + 's' }">藏</div>
+                  <div class="hanko-circle w-9 h-9 text-xs stamp-anim" :style="{ animationDelay: (Math.min(idx, 18) * 0.05) + 's' }">藏</div>
                 </div>
               </div>
               <p v-if="item.desc" class="font-kai-cn text-[#3a2e22] text-[13px] sm:text-sm leading-relaxed line-clamp-2 mb-3">

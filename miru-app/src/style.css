@@ -22,10 +22,11 @@
   --bun: #2a1e16;        /* 文 */
   --cinnabar: #b8231f;   /* 朱 */
 
-  --serif: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-  --kai: 'LXGW WenKai Screen', 'STKaiti', 'KaiTi', 'STZhongsong', serif;
-  --mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
-  --cursive: 'Long Cang', cursive;
+  /* 字体堆栈：优先网络字体（异步加载），无网时回退到系统字体 */
+  --serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSongti', 'STSong', 'SimSun', '宋体', 'Times New Roman', serif;
+  --kai: 'LXGW WenKai Screen', 'LXGW WenKai', 'Klee One', 'STKaiti', 'KaiTi', 'STZhongsong', '楷体', 'Songti SC', cursive;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Consolas', 'Courier New', monospace;
+  --cursive: 'Long Cang', 'STXingkai', '行楷', cursive;
 
   --shadow-seal: 0 0 0 1px rgba(217, 32, 32, 0.3), 0 4px 12px rgba(217, 32, 32, 0.18);
   --shadow-paper: 0 1px 0 rgba(243, 236, 224, 0.05), 0 8px 24px rgba(0, 0, 0, 0.4);

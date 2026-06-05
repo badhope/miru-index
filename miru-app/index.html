@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net; base-uri 'self'; form-action 'self'; object-src 'none'">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="description" content="漫藏 MIRU INDEX — ACGN 资源导航站，新和风杂志美学，聚合 26 个细分分类 166 条精选资源：网络代理、下载器、AI 工具、漫画、番剧、GalGame、轻小说、音乐、周边、资讯、绘画、视频、社区、GitHub 开源等。">
@@ -22,13 +22,20 @@
     <meta name="twitter:description" content="新和风杂志美学的 ACGN 资源导航 · 26 分类 · 166 条资源">
     <title>漫藏 · MIRU INDEX — ACGN 资源导航</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 字体：国内 jsDelivr CDN + 异步加载（不阻塞首屏渲染） -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <!-- LXGW WenKai Screen 霞鹜文楷（正文） -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=LXGW+WenKai+Screen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Long+Cang&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css" />
+    </noscript>
 
+    <!-- 印章风 favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http%3A//www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%23f3ece0'/%3E%3Crect x='6' y='6' width='88' height='88' fill='none' stroke='%23d92020' stroke-width='4' rx='2'/%3E%3Ctext x='50' y='40' text-anchor='middle' fill='%23d92020' font-family='serif' font-size='34' font-weight='900'%3E漫%3C/text%3E%3Ctext x='50' y='78' text-anchor='middle' fill='%23d92020' font-family='serif' font-size='34' font-weight='900'%3E藏%3C/text%3E%3C/svg%3E" />
   </head>
   <body class="bg-[#0a0a0a] text-[#f3ece0] min-h-screen antialiased">

@@ -142,8 +142,8 @@ export const categories = [
         tags: ['AI', '角色扮演', '本地'], features: ['多 API', '角色卡', '社区生态'], proxy: false
       },
       {
-        name: 'image-matting', url: 'https://github.com/peterwilli/sd-webui-image-matting', desc: 'AI 抠图',
-        fullDesc: 'Stable Diffusion WebUI 的抠图插件，基于 RMBG-1.4 模型，识别发丝级边缘细节，二次元图抠图表现尤其好。',
+        name: 'image-matting', url: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg', desc: 'AI 抠图',
+        fullDesc: 'Stable Diffusion WebUI 的抠图插件（rembg），基于 RMBG-1.4 模型，识别发丝级边缘细节，二次元图抠图表现尤其好，可作为 SD WebUI 扩展直接安装。',
         tags: ['AI', '抠图', 'SD'], features: ['发丝级', '二次元优化', 'SD 插件'], proxy: false
       },
       {
@@ -373,11 +373,6 @@ export const categories = [
         fullDesc: 'Electron 写的开源漫画阅读器（Windows / macOS / Linux），UI 现代，支持 manga / comic / 双页模式。',
         tags: ['Electron', '开源', '桌面'], features: ['现代 UI', '多格式', '三端'], proxy: false
       },
-      {
-        name: 'PeriHubo', url: 'https://github.com/nicobooz/PeriHubo', desc: '哔咔桌面客户端',
-        fullDesc: '哔咔的桌面端第三方客户端，基于 Tauri 框架，支持 Win/Mac/Linux 三大平台。',
-        tags: ['Tauri', '哔咔', '桌面'], features: ['三端', '现代 UI', '轻量'], proxy: false
-      },
     ]
   },
   {
@@ -406,7 +401,7 @@ export const categories = [
         tags: ['弹幕', '本地', '匹配'], features: ['弹幕匹配', '本地播放', '多格式'], proxy: false
       },
       {
-        name: 'EasyBangumi', url: 'https://github.com/easybangumi/easybangumi', desc: '免费开源追番',
+        name: 'EasyBangumi', url: 'https://github.com/easybangumiorg/EasyBangumi', desc: '免费开源追番',
         fullDesc: 'Java 写的开源番剧 App，提供资源采集 + 弹幕 + Web 端管理后台，可自部署后端 + 多端 App 追番。',
         tags: ['番剧', 'Java', '自部署'], features: ['资源采集', 'Web 后台', '开源'], proxy: false
       },
@@ -426,11 +421,6 @@ export const categories = [
         name: '琉璃神社', url: 'https://www.llss.icu/wp/', desc: '下载',
         fullDesc: '老牌动漫 / GalGame 资源共享站，主打 BT 种子与网盘分发，资源按季度 / 年份整理。',
         tags: ['BT', '网盘', '老牌'], features: ['BT 为主', '按季度', '老资源全'], proxy: false
-      },
-      {
-        name: 'ACG漫音社', url: 'https://www.acgjc.com/', desc: '下载',
-        fullDesc: '番剧 / 漫画 / 音乐综合下载站，资源按新番更新，自带磁力链接。',
-        tags: ['番剧', '磁力', '新番'], features: ['新番速更', '磁力', '音乐'], proxy: false
       },
       {
         name: 'MX动漫', url: 'https://www.mxdm.xyz/', desc: '在线番剧',
@@ -529,11 +519,6 @@ export const categories = [
         tags: ['轻小说', '日文', '翻译'], features: ['志愿者', '老牌', '分类细'], proxy: false
       },
       {
-        name: '鸠摩搜索', url: 'https://www.jiumodiary.com/', desc: '电子书聚合搜索',
-        fullDesc: '电子书聚合搜索引擎，跨网盘 / 论坛 / Z-Library 等多个数据源，结果按相关度 / 时间排序。',
-        tags: ['电子书', '搜索', '聚合'], features: ['多源聚合', '电子书', '网盘'], proxy: false
-      },
-      {
         name: '80电子书', url: 'https://m.txt80.cc/', desc: 'TXT 电子书',
         fullDesc: 'TXT 格式电子书下载站，资源以网文 / 轻小说 / 历史为主，移动端适配好。',
         tags: ['TXT', '网文', '轻小说'], features: ['TXT 格式', '网文全', '移动端'], proxy: false
@@ -575,11 +560,6 @@ export const categories = [
     name: '图书馆 / 古籍',
     icon: '🏛️',
     items: [
-      {
-        name: '鸠摩搜索', url: 'https://www.jiumodiary.com/', desc: '电子书聚合',
-        fullDesc: '电子图书馆藏聚合搜索，跨网盘 + 论坛 + Z-Library，资源类型横跨网文 / 古典 / 学术。',
-        tags: ['电子书', '聚合', '学术'], features: ['多源', '全类型', '搜索强'], proxy: false
-      },
       {
         name: 'Library Digital', url: 'https://library.ucsd.edu/dc/', desc: 'UCSD 数字馆藏',
         fullDesc: '加州大学圣地亚哥分校数字馆藏公开访问入口，含古籍 / 报纸 / 照片 / 音像资料，免费浏览。',
@@ -667,29 +647,14 @@ export const categories = [
         tags: ['桌面', '多源', '下载器'], features: ['1200+ 源', '三端', '桌面端'], proxy: false
       },
       {
-        name: 'Mihon', url: 'https://github.com/mihonapp/mihon', desc: 'Tachiyomi 继任者',
-        fullDesc: 'Tachiyomi 的官方继任者，Android 端开源漫画阅读器，通过扩展仓库支持上千漫画站。',
-        tags: ['Android', '扩展', '开源'], features: ['上千源', '扩展架构', '开源'], proxy: false
-      },
-      {
         name: 'Komikku', url: 'https://github.com/komikku-app/komikku', desc: 'GNOME 桌面阅读器',
         fullDesc: 'GNOME 桌面环境的开源漫画阅读器（Linux 主战场，亦有 Android），UI 与 GNOME 设计语言统一。',
         tags: ['GNOME', 'Linux', '阅读器'], features: ['GNOME 原生', '开源', '本地优先'], proxy: false
       },
       {
-        name: 'TachiyomiSY', url: 'https://github.com/jobobby04/TachiyomiSY', desc: 'Tachiyomi 稳定分支',
-        fullDesc: 'Tachiyomi 停止维护前的稳定分支，由社区接手持续更新，扩展生态成熟。',
-        tags: ['Android', '稳定', 'Tachiyomi'], features: ['稳定', '扩展全', '社区维护'], proxy: false
-      },
-      {
         name: 'Suwayomi-Server', url: 'https://github.com/Suwayomi/Suwayomi-Server', desc: '自托管漫画服务器',
         fullDesc: '自托管漫画服务器前端 + Tachiyomi 后端的组合，可自部署在 NAS / 服务器，配合 Web UI 在任何设备上阅读。',
         tags: ['自托管', 'Server', 'Web'], features: ['自托管', '多端', '开源'], proxy: false
-      },
-      {
-        name: 'Aniyomi', url: 'https://github.com/aniyomiorg/aniyomi', desc: '漫画+番剧一站式',
-        fullDesc: 'Mihon 衍生态，漫画 + 番剧二合一客户端，一个 App 同时管两类内容。',
-        tags: ['漫画', '番剧', '二合一'], features: ['二合一', 'Mihon 同源', '扩展互通'], proxy: false
       },
       {
         name: 'copymanga-downloader', url: 'https://github.com/lanyeeee/copymanga-downloader', desc: '拷贝漫画下载器',
@@ -707,34 +672,14 @@ export const categories = [
         tags: ['自托管', 'OPDS', 'Web'], features: ['OPDS', 'REST API', '家庭友好'], proxy: false
       },
       {
-        name: 'manga-image-translator', url: 'https://github.com/zyddnys/manga-image-translator', desc: 'AI 漫画图片翻译',
-        fullDesc: 'AI 漫画图片翻译（OCR + 擦除 + 重绘），支持中日英多语言，命令行 / Colab 均可运行。',
-        tags: ['AI', 'OCR', '漫画'], features: ['多语言', '可本地', 'CLI'], proxy: false
-      },
-      {
-        name: 'Kazumi', url: 'https://github.com/Predidit/Kazumi/releases/tag/1.7.3', desc: '番剧 App',
-        fullDesc: '基于自定义规则的跨平台番剧 App，自带弹幕，支持 Windows / macOS / Android / iOS。',
-        tags: ['番剧', '规则', '跨平台'], features: ['自定义规则', '弹幕', '四端'], proxy: false
-      },
-      {
-        name: 'Animeko', url: 'https://myani.org/', desc: 'Compose 番剧',
-        fullDesc: 'JetBrains Compose Multiplatform 番剧 App，UI 现代，Bangumi 追番同步。',
-        tags: ['番剧', 'Compose', 'Bangumi'], features: ['现代 UI', '追番同步', 'KMP'], proxy: false
-      },
-      {
-        name: 'Waifu2x-Extension-GUI', url: 'https://github.com/AaronFeng753/Waifu2x-Extension-GUI', desc: 'AI 图像超分 GUI',
-        fullDesc: '集成了 Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN 等多种超分算法的 GUI 客户端，批量处理视频 / 番剧 / 漫画图片。',
-        tags: ['超分', 'GUI', '批量'], features: ['多算法', '批量', '视频帧'], proxy: false
-      },
-      {
         name: 'Real-ESRGAN', url: 'https://github.com/xinntao/Real-ESRGAN', desc: 'AI 图像超分',
         fullDesc: '腾讯 ARC 实验室开源的图像 / 视频超分算法，Anime6B / Video 多个模型，是当前开源超分的事实标准之一。',
         tags: ['超分', '腾讯', '开源'], features: ['多模型', '视频支持', '高质量'], proxy: false
       },
       {
-        name: 'Real-CUGAN', url: 'https://github.com/bilibili/ailab/Real-CUGAN', desc: 'B站开源超分',
-        fullDesc: 'B站 AI Lab 开源的动漫专用超分算法，WebUI + 命令行双模式，对二次元画面细节保留好。',
-        tags: ['超分', 'B站', '二次元'], features: ['二次元', 'WebUI', '开源'], proxy: false
+        name: 'Real-CUGAN', url: 'https://github.com/nihui/realcugan-ncnn-vulkan', desc: 'B站开源超分',
+        fullDesc: 'B站 AI Lab 开源的动漫专用超分算法原项目 + nihui 维护的 ncnn-vulkan 桌面 GUI 版，对二次元画面细节保留好，开箱即用。',
+        tags: ['超分', 'B站', '二次元'], features: ['二次元', 'GUI', '开源'], proxy: false
       },
       {
         name: 'EasySpider', url: 'https://github.com/NaiboWang/EasySpider', desc: '可视化爬虫',
@@ -885,11 +830,6 @@ export const categories = [
         name: 'Pixiv', url: 'https://www.pixiv.net/', desc: '日本最大插画平台',
         fullDesc: '日本最大插画 / 漫画 / 同人志投稿平台，俗称 P 站，作品以 pid 编号索引，画师生态最丰富。',
         tags: ['Pixiv', '插画', '同人'], features: ['pid 索引', '画师关注', '排行榜'], proxy: true
-      },
-      {
-        name: '半次元', url: 'https://bcy.net/', desc: '绘画 / Cos / 小说社区',
-        fullDesc: '国内知名的二次元综合社区，绘画 / Cos / 小说 / 视频四大板块，年轻画师 / Coser 入驻密集，作品氛围活跃。',
-        tags: ['绘画', 'Cos', '社区'], features: ['绘画社区', 'Cos 摄影', '小说'], proxy: false
       },
       {
         name: '米画师', url: 'https://www.mihuashi.com/', desc: '约稿平台',

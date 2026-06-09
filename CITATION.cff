@@ -7,7 +7,6 @@ authors:
   - family-names: badhope
     given-names: badhope
     alias: badhope
-    orcid: https://orcid.org/0000-0000-0000-0000
 identifiers:
   - type: url
     value: https://github.com/badhope/miru-index
@@ -16,6 +15,15 @@ type: software
 url: https://github.com/badhope/miru-index
 repository-code: https://github.com/badhope/miru-index
 keywords:
-  - open-source, software
+  - acg
+  - anime
+  - curated
+  - galgame
+  - github-pages
+  - index
+  - manga
+  - visual-novel
+  - badhope
+  - curated-list
 abstract: >-
-  MIRU INDEX — A curated index of manga, visual novels, and ACG resources, all in one searchable hub.
+  MIRU INDEX — a curated index of manga, visual novel, and ACG resources on GitHub. Read it, click through, use the upstream. Nothing hosted here, nothing redistributed.

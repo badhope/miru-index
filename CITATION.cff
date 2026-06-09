@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software in academic work, please cite it using the
+  metadata below.
+title: miru-index
+authors:
+  - family-names: badhope
+    given-names: badhope
+    alias: badhope
+    orcid: https://orcid.org/0000-0000-0000-0000
+identifiers:
+  - type: url
+    value: https://github.com/badhope/miru-index
+license: MIT
+type: software
+url: https://github.com/badhope/miru-index
+repository-code: https://github.com/badhope/miru-index
+keywords:
+  - open-source, software
+abstract: >-
+  MIRU INDEX — A curated index of manga, visual novels, and ACG resources, all in one searchable hub.
